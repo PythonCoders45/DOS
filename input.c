@@ -1,0 +1,70 @@
+#include <stdio.h>
+#define COLOR_BLACK          "\033[0;30m"
+#define COLOR_RED            "\033[0;31m"
+#define COLOR_GREEN          "\033[0;32m"
+#define COLOR_YELLOW         "\033[0;33m"
+#define COLOR_BLUE           "\033[0;34m"
+#define COLOR_MAGENTA        "\033[0;35m"
+#define COLOR_CYAN           "\033[0;36m"
+#define COLOR_WHITE          "\033[0;37m"
+#define BOLD_BLACK           "\033[1;30m"
+#define BOLD_RED             "\033[1;31m"
+#define BOLD_GREEN           "\033[1;32m"
+#define BOLD_YELLOW          "\033[1;33m"
+#define BOLD_BLUE            "\033[1;34m"
+#define BOLD_MAGENTA         "\033[1;35m"
+#define BOLD_CYAN            "\033[1;36m"
+#define BOLD_WHITE           "\033[1;37m"
+#define INTENSE_BLACK        "\033[0;90m"
+#define INTENSE_RED          "\033[0;91m"
+#define INTENSE_GREEN        "\033[0;92m"
+#define INTENSE_YELLOW       "\033[0;93m"
+#define INTENSE_BLUE         "\033[0;94m"
+#define INTENSE_MAGENTA      "\033[0;95m"
+#define INTENSE_CYAN         "\033[0;96m"
+#define INTENSE_WHITE        "\033[0;97m"
+#define BOLD_INTENSE_BLACK   "\033[1;90m"
+#define BOLD_INTENSE_RED     "\033[1;91m"
+#define BOLD_INTENSE_GREEN   "\033[1;92m"
+#define BOLD_INTENSE_YELLOW  "\033[1;93m"
+#define BOLD_INTENSE_BLUE    "\033[1;94m"
+#define BOLD_INTENSE_MAGENTA "\033[1;95m"
+#define BOLD_INTENSE_CYAN    "\033[1;96m"
+#define BOLD_INTENSE_WHITE   "\033[1;97m"
+#define BG_BLACK             "\033[40m"
+#define BG_RED               "\033[41m"
+#define BG_GREEN             "\033[42m"
+#define BG_YELLOW            "\033[43m"
+#define BG_BLUE              "\033[44m"
+#define BG_MAGENTA           "\033[45m"
+#define BG_CYAN              "\033[46m"
+#define BG_WHITE             "\033[47m"
+#define BG_INTENSE_BLACK     "\033[0;100m"
+#define BG_INTENSE_RED       "\033[0;101m"
+#define BG_INTENSE_GREEN     "\033[0;102m"
+#define BG_INTENSE_YELLOW    "\033[0;103m"
+#define BG_INTENSE_BLUE      "\033[0;104m"
+#define BG_INTENSE_MAGENTA   "\033[0;105m"
+#define BG_INTENSE_CYAN      "\033[0;106m"
+#define BG_INTENSE_WHITE     "\033[0;107m"
+#define COLOR_RESET          "\033[0m"
+#define TEXT_UNDERLINE       "\033[4m"
+#define TEXT_BLINK           "\033[5m"
+#define TEXT_REVERSED        "\033[7m"
+#define TEXT_HIDDEN          "\033[8m"
+
+void print_prompt(str user) {
+    printf(BOLD_CYAN user COLOR_RESET "@" COLOR_GREEN "user" COLOR_RESET " > ");
+}
+void terminal_init(str welcome_message) {
+    terminal_clear_screen();
+    printf(welcome_message);
+    print_prompt(); 
+}
+void run_terminal_command(char* raw_input) {
+    char* tokens[MAX_TOKENS];
+    int token_count = separate_command(raw_input, tokens);
+    if (token_count > 0) {
+    }
+    print_prompt(); 
+}
