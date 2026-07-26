@@ -1,4 +1,3 @@
-#include <stdio.h>
 #define COLOR_BLACK          "\033[0;30m"
 #define COLOR_RED            "\033[0;31m"
 #define COLOR_GREEN          "\033[0;32m"
