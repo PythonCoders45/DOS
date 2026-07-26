@@ -53,18 +53,42 @@
 #define TEXT_REVERSED        "\033[7m"
 #define TEXT_HIDDEN          "\033[8m"
 
-void print_prompt(str user) {
-    printf(BOLD_CYAN user COLOR_RESET "@" COLOR_GREEN "user" COLOR_RESET " > ");
+#include "types.h"
+
+// Forward declarations to kernel drivers
+extern void serial_print(const char* str);
+extern int separate_command(char* input_string, char** output_tokens);
+
+#define MAX_TOKENS 16
+
+/**
+ * @brief Prints custom user prompt to the kernel log/serial output
+ */
+void print_prompt(const char* user) {
+    serial_print(user);
+    serial_print("@kernel > ");
 }
-void terminal_init(str welcome_message) {
-    terminal_clear_screen();
-    printf(welcome_message);
-    print_prompt(); 
+
+/**
+ * @brief Initializes terminal shell with a custom welcome message
+ */
+void terminal_init(const char* welcome_message, const char* user) {
+    serial_print("\033[H\033[J"); // Clear screen via terminal escape code
+    serial_print(welcome_message);
+    serial_print("\n");
+    print_prompt(user);
 }
-void run_terminal_command(char* raw_input) {
+
+/**
+ * @brief Handles incoming raw input string inside kernel space
+ */
+void run_terminal_input(char* raw_input, const char* user) {
     char* tokens[MAX_TOKENS];
     int token_count = separate_command(raw_input, tokens);
+
     if (token_count > 0) {
+        // Command router logic executes here...
     }
-    print_prompt(); 
+
+    print_prompt(user);
 }
