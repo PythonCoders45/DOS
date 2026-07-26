@@ -1,9 +1,9 @@
-#include <stdio.h>
-#include <math.h>
+#include "types.h"
 
-int returnPerc(int a);
-
-int returnPerc(int a) {
-    int x = round(a * 100)
-    return x;
+/**
+ * @brief Calculates percentage using integer math (0-100%)
+ */
+int returnPerc(int value, int total) {
+    if (total == 0) return 0;
+    return (value * 100) / total;
 }
