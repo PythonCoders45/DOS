@@ -1,3 +1,6 @@
+#ifndef COLORED_TEXT_H
+#define COLORED_TEXT_H
+
 #define COLOR_BLACK          "\033[0;30m"
 #define COLOR_RED            "\033[0;31m"
 #define COLOR_GREEN          "\033[0;32m"
@@ -51,3 +54,5 @@
 #define TEXT_BLINK           "\033[5m"
 #define TEXT_REVERSED        "\033[7m"
 #define TEXT_HIDDEN          "\033[8m"
+
+#endif
